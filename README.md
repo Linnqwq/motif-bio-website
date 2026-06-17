@@ -9,6 +9,8 @@ python3 -m http.server 8000
 # 浏览器打开 http://localhost:8000
 ```
 
+部署版:https://linnqwq.github.io/motif-bio-website/(GitHub Pages,push 后自动更新)
+
 ## 目录结构
 ```
 网站/
@@ -16,12 +18,11 @@ python3 -m http.server 8000
 ├── news.html               新闻列表页(独立)
 ├── news-detail.html        新闻详情页模板(通过 ?id=xxx 加载)
 ├── css/style.css           全部样式
-├── js/main.js              所有交互(进场/滚动/数字/新闻渲染)
+├── js/main.js              所有交互(进场/滚动/数字/新闻渲染/分子网格浮动)
 ├── data/news.json          新闻数据 ⭐ 改这个就能增删改新闻
 └── assets/
     ├── logo/
-    │   ├── logo-mark.svg    内联使用的 SVG logo(可换色)
-    │   └── logo-mark.jpg    您发的原版 logo(白底,不直接用)
+    │   └── logo-mark.png    透明背景 logo,全站使用
     └── images/
         ├── team/            团队照片(待添加)
         ├── products/        产品图(待添加)
@@ -52,10 +53,11 @@ python3 -m http.server 8000
 刷新页面即生效。**首页自动按日期取最新 3 条**,新闻列表页显示全部并按 tag 筛选。
 
 ## 其它内容替换
-- **Logo**:用 PNG 透明背景或 SVG 替换 `assets/logo/logo-mark.svg`,HTML 里的内联 SVG 改为 `<img src="...">`
-- **团队照**:`assets/images/team/`,推荐 600×660px,改 `index.html` `.team-card .photo` 部分
+- **Logo**:替换 `assets/logo/logo-mark.png`(透明背景 PNG)即可全站生效,共 6 处引用
+- **团队照**:放到 `assets/images/team/`,推荐 600×660px,改 `index.html` `.team-card .photo` 部分
 - **厂房/产品图**:同理放到对应目录,替换 HTML 中的占位 SVG/DIV
 - **公司介绍文案**:`index.html` 的 `#about` section
+- **联系方式**:`index.html` 的 `#contact` section (电话/邮箱/地址)
 
 ## 配色变量
 ```css
@@ -67,11 +69,26 @@ python3 -m http.server 8000
 全部定义在 `css/style.css` 顶部 `:root`,改一处全站生效。
 
 ## 交互
-- 进场:全屏 logo + 公司全名淡入 → 1.5s 后整体淡出 → 主界面 / 导航浮现
-- 导航滚动后变深绿磨砂玻璃
-- 所有元素滚到视口 fade-up
-- 数字滚动计数(成立年/注册资本/业务领域/研发占比)
-- 产品卡 hover 上浮 + 顶部流光
-- 新闻卡 hover 上浮 + 边框变薄荷
-- 列表页 tag 筛选切换
-- 移动端汉堡菜单
+- **进场动画**:全屏 logo + 公司全名淡入 → 1.5s 后淡出 → 主界面浮现(同一浏览器会话只显示一次,sessionStorage 控制)
+- **导航**:滚动后变深绿磨砂玻璃
+- **Hero 背景**:分子网格 + 4 个发光脉动节点,节点和连线由 JS 正弦波驱动微浮动
+- **滚动揭示**:所有元素滚到视口 fade-up
+- **数字滚动**:成立年/注册资本/业务领域/研发占比
+- **卡片交互**:产品卡 hover 上浮 + 顶部流光;新闻卡 hover 上浮 + 边框变薄荷
+- **新闻列表**:tag 筛选切换
+- **移动端**:汉堡菜单
+
+## 部署 / 开发流程
+
+本地开发:
+```bash
+cd "/Users/linnqwq/Desktop/基元合生/网站"
+python3 -m http.server 8000
+```
+
+push 到 GitHub(GitHub Pages 自动更新):
+```bash
+git add .
+git commit -m "改动说明"
+git push
+```
