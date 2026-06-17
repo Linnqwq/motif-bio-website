@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+*.DS_Store
+
+# Editors / IDE
+.vscode/
+.idea/
+*.swp
+
+# Node (如果以后用)
+node_modules/
+*.log
+npm-debug.log*
+
+# Build / Deploy
+.netlify/
+.vercel/
+dist/

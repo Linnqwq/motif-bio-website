@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>基元合生(眉山)生物科技有限责任公司 · MOTIF SYNTHETIC BIOLOGY</title>
+<meta name="description" content="基元合生(眉山)生物科技有限责任公司 — 聚焦生物基材料聚合、生物化工、发酵优化与工业酶研发。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ========== 进场动画 ========== -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-stack">
+    <div class="intro-logo">
+      <img src="assets/logo/logo-mark.png" alt="基元合生 logo" />
+    </div>
+    <div class="intro-fullname">基元合生(眉山)生物科技有限责任公司</div>
+    <div class="intro-en en">MOTIF SYNTHETIC BIOLOGY (MEI SHANG) CO., LIMITED</div>
+  </div>
+</div>
+
+<!-- ========== 顶部导航 ========== -->
+<nav class="nav">
+  <a class="nav-logo" href="#home">
+    <img class="nav-logo-img" src="assets/logo/logo-mark.png" alt="基元合生" />
+    <span class="brand-block">
+      <span class="brand-cn">基元合生(眉山)生物科技有限责任公司</span>
+      <span class="brand-en en">MOTIF SYNTHETIC BIOLOGY</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">公司简介</a>
+    <a href="#team">团队</a>
+    <a href="#products">产品介绍</a>
+    <a href="#facility">厂房设备</a>
+    <a href="#news">新闻动态</a>
+    <a href="#contact">联系我们</a>
+  </div>
+  <button class="nav-toggle" aria-label="menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M4 7h16M4 12h16M4 17h16"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <!-- 背景:分子结构 SVG + 节点光斑 + 连线节点微浮动 -->
+  <div class="hero-bg" aria-hidden="true">
+    <svg class="hero-bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="nodeGlow">
+          <stop offset="0%"  stop-color="rgb(199,230,183)" stop-opacity="0.65"/>
+          <stop offset="40%" stop-color="rgb(199,230,183)" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="rgb(199,230,183)" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <g class="grid-base" stroke="currentColor" stroke-width="1" fill="none">
+        <circle cx="200" cy="200" r="3" fill="currentColor"/>
+        <circle cx="380" cy="140" r="3" fill="currentColor"/>
+        <circle cx="520" cy="280" r="3" fill="currentColor"/>
+        <circle cx="700" cy="180" r="3" fill="currentColor"/>
+        <circle cx="900" cy="320" r="3" fill="currentColor"/>
+        <circle cx="1100" cy="220" r="3" fill="currentColor"/>
+        <circle cx="1280" cy="380" r="3" fill="currentColor"/>
+        <circle cx="300" cy="600" r="3" fill="currentColor"/>
+        <circle cx="500" cy="720" r="3" fill="currentColor"/>
+        <circle cx="780" cy="640" r="3" fill="currentColor"/>
+        <circle cx="1000" cy="780" r="3" fill="currentColor"/>
+        <circle cx="1200" cy="680" r="3" fill="currentColor"/>
+        <line x1="200" y1="200" x2="380" y2="140"/>
+        <line x1="380" y1="140" x2="520" y2="280"/>
+        <line x1="520" y1="280" x2="700" y2="180"/>
+        <line x1="700" y1="180" x2="900" y2="320"/>
+        <line x1="900" y1="320" x2="1100" y2="220"/>
+        <line x1="1100" y1="220" x2="1280" y2="380"/>
+        <line x1="300" y1="600" x2="500" y2="720"/>
+        <line x1="500" y1="720" x2="780" y2="640"/>
+        <line x1="780" y1="640" x2="1000" y2="780"/>
+        <line x1="1000" y1="780" x2="1200" y2="680"/>
+        <line x1="520" y1="280" x2="500" y2="720"/>
+        <line x1="700" y1="180" x2="780" y2="640"/>
+        <line x1="900" y1="320" x2="1000" y2="780"/>
+      </g>
+
+      <g class="glow-layer" fill="url(#nodeGlow)">
+        <circle cx="700" cy="180" r="22">
+          <animate attributeName="r"       values="18;36;18"  dur="4.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.9;0.35;0.9" dur="4.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="300" cy="600" r="22">
+          <animate attributeName="r"       values="18;38;18"  dur="5.2s" begin="1.1s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.9;0.30;0.9" dur="5.2s" begin="1.1s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1100" cy="220" r="22">
+          <animate attributeName="r"       values="18;34;18"  dur="3.8s" begin="0.6s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.85;0.30;0.85" dur="3.8s" begin="0.6s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="780" cy="640" r="22">
+          <animate attributeName="r"       values="18;36;18"  dur="4.8s" begin="2.2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.85;0.30;0.85" dur="4.8s" begin="2.2s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner section-inner">
+    <div class="hero-eyebrow">合成生物 · 发酵工程 · 生物制造</div>
+    <h1 class="hero-slogan">
+      <span class="line">以基因为元。</span>
+      <span class="line">合自然之力。</span>
+      <span class="line">创<em>生命</em>未来。</span>
+    </h1>
+    <p class="hero-desc en">MOTIF SYNTHETIC BIOLOGY (MEI SHANG) CO., LIMITED</p>
+    <a href="#about" class="hero-cta">
+      了解公司
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>向下滚动</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ========== 数据栏 ========== -->
+<section class="stats" style="padding-top:60px;padding-bottom:60px;">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="num"><span data-count="2025">0</span></div>
+      <div class="lbl">YEAR · 成立年份</div>
+    </div>
+    <div class="stat reveal d-1">
+      <div class="num"><span data-count="1000">0</span><span class="unit">万元</span></div>
+      <div class="lbl">REG. CAPITAL · 注册资本</div>
+    </div>
+    <div class="stat reveal d-2">
+      <div class="num"><span data-count="6">0</span><span class="unit">+</span></div>
+      <div class="lbl">DOMAINS · 核心业务领域</div>
+    </div>
+    <div class="stat reveal d-3">
+      <div class="num"><span data-count="100">0</span><span class="unit">%</span></div>
+      <div class="lbl">FOCUS · 自主研发</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 公司简介 ========== -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">ABOUT US · 公司简介</div>
+      <h2 class="h-title">在发酵工艺与生物基材料之间,<br/>搭建从分子到产业的桥梁。</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal d-1">
+        <p>
+          基元合生(眉山)生物科技有限责任公司成立于 2025 年 7 月,坐落于四川省眉山市东坡区本草大道北段 8 号,是一家专注于生物基材料聚合技术、生物化工产品、发酵过程优化与工业酶制剂的研发型生物科技企业。
+        </p>
+        <p>
+          公司以合成生物学为底层方法论,围绕"原料 — 菌株 — 工艺 — 产品"四个环节进行系统性研发,致力于把可再生生物质转化为高附加值的生物基材料、专用化学品与食品/饲料/肥料添加剂,服务下游产业的绿色升级。
+        </p>
+
+        <div class="about-points">
+          <div class="pt">
+            <div class="dot">01</div>
+            <div>
+              <h4>核心技术</h4>
+              <p>合成生物学 · 发酵工艺优化 · 工业酶设计 · 生物基聚合</p>
+            </div>
+          </div>
+          <div class="pt">
+            <div class="dot">02</div>
+            <div>
+              <h4>应用方向</h4>
+              <p>生物基材料 · 专用化学品 · 食品添加剂 · 生物饲料 · 生物有机肥</p>
+            </div>
+          </div>
+          <div class="pt">
+            <div class="dot">03</div>
+            <div>
+              <h4>价值主张</h4>
+              <p>可再生原料替代化石路线,推动下游产业绿色低碳转型</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual reveal d-2">
+        <!-- 占位:后续替换为公司/实验室照片 -->
+        <img class="about-visual-logo" src="assets/logo/logo-mark.png" alt="基元合生" />
+        <div class="placeholder-tag en">IMAGE PLACEHOLDER · 待替换</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 团队 ========== -->
+<section class="team" id="team">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">OUR TEAM · 团队介绍</div>
+      <h2 class="h-title">由一线科研与产业经验<br/>共同构筑。</h2>
+      <p class="h-sub">下方为团队展示位,后续您提供照片与简介后将逐一填入。</p>
+    </div>
+
+    <div class="team-grid">
+      <!-- 占位卡 × 4,后续替换 -->
+      <div class="team-card reveal">
+        <div class="photo">PHOTO PLACEHOLDER</div>
+        <div class="info">
+          <div class="name">姓名待补充</div>
+          <div class="role">职位 / Title</div>
+        </div>
+      </div>
+      <div class="team-card reveal d-1">
+        <div class="photo">PHOTO PLACEHOLDER</div>
+        <div class="info">
+          <div class="name">姓名待补充</div>
+          <div class="role">职位 / Title</div>
+        </div>
+      </div>
+      <div class="team-card reveal d-2">
+        <div class="photo">PHOTO PLACEHOLDER</div>
+        <div class="info">
+          <div class="name">姓名待补充</div>
+          <div class="role">职位 / Title</div>
+        </div>
+      </div>
+      <div class="team-card reveal d-3">
+        <div class="photo">PHOTO PLACEHOLDER</div>
+        <div class="info">
+          <div class="name">姓名待补充</div>
+          <div class="role">职位 / Title</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 产品介绍 ========== -->
+<section class="products section-dark" id="products">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">PRODUCTS · 产品介绍</div>
+      <h2 class="h-title">从分子设计到产业化的<br/>全链路输出。</h2>
+      <p class="h-sub">以下为业务方向占位,后续您提供具体产品信息后将逐一展开。</p>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+          </svg>
+        </div>
+        <h3>生物基材料</h3>
+        <p>以可再生生物质为原料,通过合成生物学与聚合工艺生产高性能生物基高分子材料。</p>
+        <div class="tag">BIO-BASED MATERIALS</div>
+      </div>
+
+      <div class="product-card reveal d-1">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M6 2v6a6 6 0 0 0 12 0V2M6 2h12M6 22h12M9 22v-6M15 22v-6"/>
+          </svg>
+        </div>
+        <h3>发酵产品</h3>
+        <p>围绕发酵过程优化,提供从菌株选育到工艺放大的整体解决方案与发酵产物。</p>
+        <div class="tag">FERMENTATION</div>
+      </div>
+
+      <div class="product-card reveal d-2">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <h3>工业酶制剂</h3>
+        <p>面向食品、饲料、化工等下游场景,定制工业酶,提升过程效率与产品质量。</p>
+        <div class="tag">INDUSTRIAL ENZYMES</div>
+      </div>
+
+      <div class="product-card reveal d-3">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9"/>
+            <path d="M3 12c3 0 6 2 6 6M3 12c3 0 6-2 6-6"/>
+          </svg>
+        </div>
+        <h3>专用化学品</h3>
+        <p>提供面向特定行业的专用化学品研发与制造,替代传统化石原料路线。</p>
+        <div class="tag">SPECIALTY CHEMICALS</div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2C8 6 8 10 12 14c4-4 4-8 0-12zM12 14v8M8 22h8"/>
+          </svg>
+        </div>
+        <h3>生物饲料 & 有机肥</h3>
+        <p>面向农业与畜牧业,研发生物饲料和生物有机肥料,推动农业绿色循环。</p>
+        <div class="tag">AGRI-BIOTECH</div>
+      </div>
+
+      <div class="product-card reveal d-1">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M4 4h16v16H4zM4 12h16M12 4v16"/>
+          </svg>
+        </div>
+        <h3>食品添加剂</h3>
+        <p>以发酵法生产食品添加剂,提供更天然、更可持续的食品原料解决方案。</p>
+        <div class="tag">FOOD INGREDIENTS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 厂房设备 ========== -->
+<section class="facility" id="facility">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">FACILITY · 厂房设备</div>
+      <h2 class="h-title">位于眉山的<br/>研发与生产基地。</h2>
+      <p class="h-sub">下列为厂房与设备展示位,待您提供照片后将替换为实景图。</p>
+    </div>
+
+    <div class="facility-grid reveal d-1">
+      <div class="item">
+        <div class="ph-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+          </svg>
+        </div>
+        <div class="label"><div class="t">研发与生产基地</div><div class="s">MEISHAN HQ · 四川眉山</div></div>
+      </div>
+      <div class="item">
+        <div class="ph-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>
+          </svg>
+        </div>
+        <div class="label"><div class="t">发酵车间</div><div class="s">FERMENTATION</div></div>
+      </div>
+      <div class="item">
+        <div class="ph-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 6v12M17 6v12"/>
+          </svg>
+        </div>
+        <div class="label"><div class="t">分离纯化</div><div class="s">PURIFICATION</div></div>
+      </div>
+      <div class="item">
+        <div class="ph-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M4 4h16v6H4zM4 14h16v6H4z"/>
+          </svg>
+        </div>
+        <div class="label"><div class="t">QA / QC 实验室</div><div class="s">QUALITY LAB</div></div>
+      </div>
+      <div class="item">
+        <div class="ph-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+        <div class="label"><div class="t">中试平台</div><div class="s">PILOT PLANT</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 新闻动态(首页只展示最新3条) ========== -->
+<section class="news" id="news">
+  <div class="section-inner">
+    <div class="news-head reveal">
+      <div>
+        <div class="eyebrow">NEWS · 新闻动态</div>
+        <h2 class="h-title">最新进展。</h2>
+      </div>
+      <a href="news.html" class="link-more">查看全部新闻
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+    <div id="news-preview" class="news-cards"></div>
+  </div>
+</section>
+
+<!-- ========== 联系我们 ========== -->
+<section class="contact section-dark" id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">CONTACT · 联系我们</div>
+      <h2 class="h-title">期待与您建立合作。</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal d-1">
+        <div class="item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="k">ADDRESS · 地址</div>
+            <div class="v">四川省眉山市东坡区本草大道北段8号</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M22 16.92V21a1 1 0 0 1-1.1 1A19 19 0 0 1 2 3.1 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7.21 9.21a16 16 0 0 0 7.58 7.58l1.46-1.59a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="k">PHONE · 电话</div>
+            <div class="v">158 8221 1817</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/>
+            </svg>
+          </div>
+          <div>
+            <div class="k">EMAIL · 邮箱</div>
+            <div class="v">contact@motif-bio.cn(待确认)</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/>
+            </svg>
+          </div>
+          <div>
+            <div class="k">CREDIT CODE · 统一社会信用代码</div>
+            <div class="v">91511402MAEN9DXM8G</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal d-2" id="contact-form">
+        <div class="row">
+          <input type="text" placeholder="您的姓名 / Name" required />
+          <input type="text" placeholder="公司 / Company" />
+        </div>
+        <div class="row">
+          <input type="email" placeholder="邮箱 / Email" required />
+          <input type="tel" placeholder="电话 / Phone" />
+        </div>
+        <textarea placeholder="留言内容 / Message" required></textarea>
+        <button type="submit">
+          发送留言 SEND
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer>
+  <div class="footer-inner">
+    <div>© 2025 基元合生(眉山)生物科技有限责任公司</div>
+    <div class="en">MOTIF SYNTHETIC BIOLOGY (MEI SHANG) CO., LIMITED</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
