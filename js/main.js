@@ -246,6 +246,25 @@ links?.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => links.classList.remove('open'))
 );
 
+// ---------- 厂房 Carousel(左右滚动) ----------
+(function initCarousel() {
+  const track = document.getElementById('facility-track');
+  if (!track) return;
+
+  document.querySelectorAll('.carousel-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dir = btn.dataset.dir;
+      const first = track.querySelector('.carousel-item');
+      if (!first) return;
+      const step = first.offsetWidth + 20; // gap=20
+      track.scrollBy({
+        left: dir === 'next' ? step : -step,
+        behavior: 'smooth'
+      });
+    });
+  });
+})();
+
 // ---------- Scroll reveal ----------
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
