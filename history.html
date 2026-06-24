@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>新闻动态 · 基元合生(眉山)生物科技有限责任公司</title>
-<meta name="description" content="基元合生 — 公司动态、技术研发、厂区进展、合作动态。" />
+<title>发展历程 · 基元合生(眉山)生物科技有限责任公司</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
@@ -12,9 +11,8 @@
 </head>
 <body class="nav-ready subpage">
 
-<!-- ========== 顶部导航 ========== -->
 <nav class="nav scrolled">
-  <a class="nav-logo" href="index.html#home">
+  <a class="nav-logo" href="index.html">
     <img class="nav-logo-img" src="assets/logo/logo-mark.png" alt="基元合生" />
     <span class="brand-block">
       <span class="brand-cn">基元合生(眉山)生物科技有限责任公司</span>
@@ -24,7 +22,7 @@
   <div class="nav-links">
     <a href="index.html">首页</a>
     <div class="nav-item">
-      <a href="about.html">关于我们
+      <a href="about.html" class="active">关于我们
         <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </a>
       <div class="dropdown">
@@ -34,7 +32,7 @@
       </div>
     </div>
     <a href="products.html">产品中心</a>
-    <a href="news.html" class="active">新闻动态</a>
+    <a href="news.html">新闻动态</a>
     <a href="contact.html">联系我们</a>
   </div>
   <button class="nav-toggle" aria-label="menu">
@@ -44,25 +42,31 @@
   </button>
 </nav>
 
-<!-- ========== 子页头 ========== -->
-<header class="subhero">
+<header class="cover-hero">
+  <div class="cover-img" style="background-image:url('assets/images/hero/neural.jpg');"></div>
   <div class="section-inner">
-    <h1 class="h-title">公司动态、研发进展<br/>与产业合作。</h1>
+    <h1>发展历程。</h1>
+    <p class="lead">一路同行 — 我们走过的足迹。</p>
   </div>
 </header>
 
-<!-- ========== 筛选 + 列表 ========== -->
-<section class="news-page">
+<section style="background:var(--c-light);">
   <div class="section-inner">
-    <div class="filters" id="filters">
-      <button class="filter active" data-tag="all">全部</button>
-      <!-- 动态注入其它分类 -->
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="date">2025.07</div>
+        <h3>公司正式成立</h3>
+        <p>基元合生(眉山)生物科技有限责任公司在四川省眉山市东坡区注册成立,注册资本 1000 万元,聚焦合成生物学领域。</p>
+      </div>
+      <div class="timeline-item" style="opacity:.45;">
+        <div class="date">待补充</div>
+        <h3>后续节点</h3>
+        <p>(此处为占位条目,后续您补充重要节点 — 例如首条产品线立项、中试启动、获得资质、首批客户合作、产线投产等)</p>
+      </div>
     </div>
-    <div id="news-full" class="news-list"></div>
   </div>
 </section>
 
-<!-- ========== 页脚 ========== -->
 <footer>
   <div class="footer-inner">
     <div>© 2025 基元合生(眉山)生物科技有限责任公司</div>

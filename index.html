@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="css/style.css?v=4" />
+<link rel="stylesheet" href="css/style.css?v=37" />
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 
 <!-- ========== 顶部导航 ========== -->
 <nav class="nav">
-  <a class="nav-logo" href="#home">
+  <a class="nav-logo" href="index.html">
     <img class="nav-logo-img" src="assets/logo/logo-mark.png" alt="基元合生" />
     <span class="brand-block">
       <span class="brand-cn">基元合生(眉山)生物科技有限责任公司</span>
@@ -33,11 +33,20 @@
     </span>
   </a>
   <div class="nav-links">
-    <a href="#about">公司简介</a>
-    <a href="#products">产品矩阵</a>
-    <a href="#facility">厂房设备</a>
-    <a href="#news">新闻动态</a>
-    <a href="#contact">联系我们</a>
+    <a href="index.html">首页</a>
+    <div class="nav-item">
+      <a href="about.html">关于我们
+        <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="dropdown">
+        <a href="about.html">企业简介</a>
+        <a href="history.html">发展历程</a>
+        <a href="vision.html">科技革新</a>
+      </div>
+    </div>
+    <a href="products.html">产品中心</a>
+    <a href="news.html">新闻动态</a>
+    <a href="contact.html">联系我们</a>
   </div>
   <button class="nav-toggle" aria-label="menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -48,64 +57,10 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="home">
-  <!-- 背景:分子结构 SVG + 节点光斑 + 连线节点微浮动 -->
+  <!-- 背景:神经突触图(品牌图) -->
   <div class="hero-bg" aria-hidden="true">
-    <svg class="hero-bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <radialGradient id="nodeGlow">
-          <stop offset="0%"  stop-color="rgb(199,230,183)" stop-opacity="0.65"/>
-          <stop offset="40%" stop-color="rgb(199,230,183)" stop-opacity="0.15"/>
-          <stop offset="100%" stop-color="rgb(199,230,183)" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-
-      <g class="grid-base" stroke="currentColor" stroke-width="1" fill="none">
-        <circle cx="200" cy="200" r="3" fill="currentColor"/>
-        <circle cx="380" cy="140" r="3" fill="currentColor"/>
-        <circle cx="520" cy="280" r="3" fill="currentColor"/>
-        <circle cx="700" cy="180" r="3" fill="currentColor"/>
-        <circle cx="900" cy="320" r="3" fill="currentColor"/>
-        <circle cx="1100" cy="220" r="3" fill="currentColor"/>
-        <circle cx="1280" cy="380" r="3" fill="currentColor"/>
-        <circle cx="300" cy="600" r="3" fill="currentColor"/>
-        <circle cx="500" cy="720" r="3" fill="currentColor"/>
-        <circle cx="780" cy="640" r="3" fill="currentColor"/>
-        <circle cx="1000" cy="780" r="3" fill="currentColor"/>
-        <circle cx="1200" cy="680" r="3" fill="currentColor"/>
-        <line x1="200" y1="200" x2="380" y2="140"/>
-        <line x1="380" y1="140" x2="520" y2="280"/>
-        <line x1="520" y1="280" x2="700" y2="180"/>
-        <line x1="700" y1="180" x2="900" y2="320"/>
-        <line x1="900" y1="320" x2="1100" y2="220"/>
-        <line x1="1100" y1="220" x2="1280" y2="380"/>
-        <line x1="300" y1="600" x2="500" y2="720"/>
-        <line x1="500" y1="720" x2="780" y2="640"/>
-        <line x1="780" y1="640" x2="1000" y2="780"/>
-        <line x1="1000" y1="780" x2="1200" y2="680"/>
-        <line x1="520" y1="280" x2="500" y2="720"/>
-        <line x1="700" y1="180" x2="780" y2="640"/>
-        <line x1="900" y1="320" x2="1000" y2="780"/>
-      </g>
-
-      <g class="glow-layer" fill="url(#nodeGlow)">
-        <circle cx="700" cy="180" r="22">
-          <animate attributeName="r"       values="18;36;18"  dur="4.5s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.9;0.35;0.9" dur="4.5s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="300" cy="600" r="22">
-          <animate attributeName="r"       values="18;38;18"  dur="5.2s" begin="1.1s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.9;0.30;0.9" dur="5.2s" begin="1.1s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="1100" cy="220" r="22">
-          <animate attributeName="r"       values="18;34;18"  dur="3.8s" begin="0.6s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.85;0.30;0.85" dur="3.8s" begin="0.6s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="780" cy="640" r="22">
-          <animate attributeName="r"       values="18;36;18"  dur="4.8s" begin="2.2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.85;0.30;0.85" dur="4.8s" begin="2.2s" repeatCount="indefinite"/>
-        </circle>
-      </g>
-    </svg>
+    <div class="hero-bg-img"></div>
+    <div class="hero-bg-overlay"></div>
   </div>
 
   <div class="hero-inner section-inner">
@@ -116,12 +71,6 @@
       <span class="line">创<em>生命</em>未来。</span>
     </h1>
     <p class="hero-desc en">MOTIF SYNTHETIC BIOLOGY (MEI SHANG) CO., LIMITED</p>
-    <a href="#about" class="hero-cta">
-      了解公司
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 12h14M13 6l6 6-6 6"/>
-      </svg>
-    </a>
   </div>
 
   <div class="scroll-hint">
@@ -152,119 +101,142 @@
   </div>
 </section>
 
-<!-- ========== 公司简介 ========== -->
-<section class="about" id="about">
+<!-- ========== 企业简介(标题+正文在左 / 图片在右,等高对齐) ========== -->
+<section class="about about-two-col home-section" id="about">
   <div class="section-inner">
-    <div class="reveal">
-      <div class="eyebrow">ABOUT US · 公司简介</div>
-      <h2 class="h-title">在发酵工艺与生物基材料之间,<br/>搭建从分子到产业的桥梁。</h2>
-    </div>
-
-    <div class="about-body reveal d-1">
-      <p>
-        基元合生(眉山)生物科技有限责任公司成立于 2025 年 7 月,坐落于四川省眉山市东坡区本草大道北段 8 号,是一家专注于合成生物学的研发型生物科技企业。公司以<em>基因工程菌株研发</em>、<em>发酵工艺优化</em>、<em>脂质体药物</em>与<em>纳米科技</em>为核心技术体系。
-      </p>
-      <p>
-        围绕"原料 — 菌株 — 工艺 — 产品"四个环节,把可再生生物质转化为高附加值的<em>原料药、化妆品原料、膳食原料、食品添加剂与饲料添加剂</em>,服务下游产业的绿色升级。
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 产品矩阵 ========== -->
-<section class="products section-dark" id="products">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="eyebrow">PRODUCTS · 产品矩阵</div>
-      <h2 class="h-title">从分子设计到产业化的<br/>完整产品布局。</h2>
-      <p class="h-sub">围绕原料药、化妆品、膳食、食品、饲料五大方向,以发酵法生产高附加值产品。</p>
-    </div>
-
-    <div class="products-grid">
-      <div class="product-card reveal">
-        <div class="cat">高品质原料药</div>
-        <h3>D-色氨酸</h3>
-        <p>D-Tryptophan</p>
-        <p class="desc">用于医药合成的高纯度手性原料药,常作为药物中间体使用。</p>
-        <div class="tag">API · 原料药</div>
+    <div class="about-grid2">
+      <div class="about-left reveal">
+        <div class="eyebrow">ABOUT US · 企业简介</div>
+        <h2 class="h-title">从基因出发,<br/>把自然的智慧带进产业。</h2>
+        <div class="about-body" style="max-width:none;margin-top:0;">
+          <p>
+            基元合生(眉山)生物科技有限责任公司以<em>基因</em>为原点、以<em>合成生物学</em>为方法,把亿万年的自然智慧,转化为可大规模量产的工艺与产品。
+          </p>
+          <p>
+            公司的核心技术覆盖<em>基因工程菌株、发酵工艺、脂质体药物与纳米科技</em>,业务聚焦原料药、化妆品原料、膳食原料、食品添加剂与饲料添加剂五大方向 — 让生物技术,真正服务于人类的生活与健康。
+          </p>
+          <p style="margin-top:32px;">
+            <a href="about.html" class="link-more">了解公司
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </p>
+        </div>
       </div>
 
-      <div class="product-card reveal d-1">
-        <div class="cat">化妆品原料</div>
-        <h3>聚谷氨酸</h3>
-        <p>γ-Polyglutamic Acid</p>
-        <p class="desc">天然生物高分子,具备优异的保湿与生物相容性,广泛用于护肤化妆品。</p>
-        <div class="tag">COSMETICS · 化妆品</div>
-      </div>
-
-      <div class="product-card reveal d-2">
-        <div class="cat">膳食原料</div>
-        <h3>燕窝酸 / N-乙酰氨基葡萄糖</h3>
-        <p>Sialic Acid · N-Acetylglucosamine</p>
-        <p class="desc">高附加值的功能性膳食原料,用于营养补充剂与功能性食品。</p>
-        <div class="tag">NUTRITION · 营养原料</div>
-      </div>
-
-      <div class="product-card reveal d-3">
-        <div class="cat">食品添加剂</div>
-        <h3>L-盐酸赖氨酸</h3>
-        <p>L-Lysine Hydrochloride</p>
-        <p class="desc">人体必需氨基酸,用于食品强化、营养补充与配方食品。</p>
-        <div class="tag">FOOD · 食品添加剂</div>
-      </div>
-
-      <div class="product-card reveal">
-        <div class="cat">饲料添加剂</div>
-        <h3>L-色氨酸</h3>
-        <p>L-Tryptophan</p>
-        <p class="desc">动物饲料中关键必需氨基酸,提升畜禽生长性能与饲料效率。</p>
-        <div class="tag">FEED · 饲料添加剂</div>
+      <div class="about-pic reveal d-1">
+        <img src="assets/images/facility/公司外观.jpg" alt="基元合生 公司外观" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== 厂房设备(水平滚动 carousel) ========== -->
-<section class="facility" id="facility">
+<!-- ========== 产品中心(5 等分大纵列,实验玻璃背景) ========== -->
+<section class="products section-dark home-section products-with-bg" id="products">
+  <div class="products-bg-image" aria-hidden="true"></div>
+  <div class="products-bg-overlay" aria-hidden="true"></div>
+
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">PRODUCTS · 产品中心</div>
+        <h2 class="h-title">五大业务方向,<br/>完整产品布局。</h2>
+        <p class="h-sub">覆盖从医药到农牧的全场景生物制造。</p>
+      </div>
+      <a href="products.html" class="link-more head-cta">
+        查看全部产品
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="products-columns reveal d-1">
+      <a class="prod-col" href="products/api.html">
+        <div class="col-num">01</div>
+        <div class="col-content">
+          <div class="col-en">API</div>
+          <h3 class="col-cn">高品质<br/>原料药</h3>
+        </div>
+        <div class="col-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="prod-col" href="products/cosmetics.html">
+        <div class="col-num">02</div>
+        <div class="col-content">
+          <div class="col-en">COSMETICS</div>
+          <h3 class="col-cn">化妆品<br/>原料</h3>
+        </div>
+        <div class="col-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="prod-col" href="products/nutrition.html">
+        <div class="col-num">03</div>
+        <div class="col-content">
+          <div class="col-en">NUTRITION</div>
+          <h3 class="col-cn">膳食<br/>原料</h3>
+        </div>
+        <div class="col-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="prod-col" href="products/food.html">
+        <div class="col-num">04</div>
+        <div class="col-content">
+          <div class="col-en">FOOD</div>
+          <h3 class="col-cn">食品<br/>添加剂</h3>
+        </div>
+        <div class="col-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="prod-col" href="products/feed.html">
+        <div class="col-num">05</div>
+        <div class="col-content">
+          <div class="col-en">FEED</div>
+          <h3 class="col-cn">饲料<br/>添加剂</h3>
+        </div>
+        <div class="col-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== 新闻动态(首页只展示近期 3 条) ========== -->
+<section class="news home-section" id="news">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">NEWS · 新闻动态</div>
+        <h2 class="h-title">近期动态。</h2>
+      </div>
+      <a href="news.html" class="link-more head-cta">
+        查看全部新闻
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div id="news-preview" class="news-cards"></div>
+  </div>
+</section>
+
+<!-- ========== 企业风貌(水平滚动 carousel) ========== -->
+<section class="facility home-section" id="facility">
   <div class="section-inner">
     <div class="facility-head reveal">
-      <div>
-        <div class="eyebrow">FACILITY · 厂房设备</div>
-        <h2 class="h-title">位于眉山的<br/>研发与生产基地。</h2>
-      </div>
-      <div class="carousel-nav">
-        <button class="carousel-btn" data-dir="prev" aria-label="上一张">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M19 12H5M11 18l-6-6 6-6"/>
-          </svg>
-        </button>
-        <button class="carousel-btn" data-dir="next" aria-label="下一张">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
-        </button>
-      </div>
+      <div class="eyebrow">FACILITY · 企业风貌</div>
+      <h2 class="h-title">走进基元合生。</h2>
     </div>
   </div>
 
   <div class="carousel reveal d-1">
+    <div class="carousel-nav carousel-nav-floating">
+      <button class="carousel-btn" data-dir="prev" aria-label="上一张">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M19 12H5M11 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button class="carousel-btn" data-dir="next" aria-label="下一张">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </div>
     <div class="carousel-track" id="facility-track">
       <div class="carousel-item">
         <div class="ph-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
-          </svg>
-        </div>
-        <div class="cap">
-          <div class="t">研发与生产基地</div>
-          <div class="s">MEISHAN HQ · 四川眉山</div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="ph-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/>
-          </svg>
+          <img src="assets/images/facility/发酵车间.jpg" alt="发酵车间" />
         </div>
         <div class="cap">
           <div class="t">发酵车间</div>
@@ -273,9 +245,7 @@
       </div>
       <div class="carousel-item">
         <div class="ph-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 6v12M17 6v12"/>
-          </svg>
+          <img src="assets/images/facility/提纯.jpg" alt="分离纯化" />
         </div>
         <div class="cap">
           <div class="t">分离纯化车间</div>
@@ -284,129 +254,31 @@
       </div>
       <div class="carousel-item">
         <div class="ph-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M4 4h16v6H4zM4 14h16v6H4z"/>
-          </svg>
+          <img src="assets/images/facility/培养室.jpg" alt="培养室" />
         </div>
         <div class="cap">
-          <div class="t">QA / QC 实验室</div>
-          <div class="s">QUALITY LAB</div>
+          <div class="t">培养室</div>
+          <div class="s">INCUBATION ROOM</div>
         </div>
       </div>
       <div class="carousel-item">
         <div class="ph-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/>
-          </svg>
+          <img src="assets/images/facility/实验室.jpg" alt="实验室" />
         </div>
         <div class="cap">
-          <div class="t">中试平台</div>
-          <div class="s">PILOT PLANT</div>
+          <div class="t">实验室</div>
+          <div class="s">LAB</div>
         </div>
       </div>
       <div class="carousel-item">
         <div class="ph-img">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M3 9l9-6 9 6v12H3z"/><path d="M9 21V12h6v9"/>
-          </svg>
+          <img src="assets/images/facility/液相色谱仪.jpg" alt="液相色谱仪" />
         </div>
         <div class="cap">
-          <div class="t">微流控分子诊断实验室</div>
-          <div class="s">MICROFLUIDIC LAB</div>
+          <div class="t">液相色谱分析</div>
+          <div class="s">HPLC ANALYSIS</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 新闻动态(首页只展示最新3条) ========== -->
-<section class="news" id="news">
-  <div class="section-inner">
-    <div class="news-head reveal">
-      <div>
-        <div class="eyebrow">NEWS · 新闻动态</div>
-        <h2 class="h-title">最新进展。</h2>
-      </div>
-      <a href="news.html" class="link-more">查看全部新闻
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </div>
-    <div id="news-preview" class="news-cards"></div>
-  </div>
-</section>
-
-<!-- ========== 联系我们 ========== -->
-<section class="contact section-dark" id="contact">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="eyebrow">CONTACT · 联系我们</div>
-      <h2 class="h-title">期待与您建立合作。</h2>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-info reveal d-1">
-        <div class="item">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>
-            </svg>
-          </div>
-          <div>
-            <div class="k">ADDRESS · 地址</div>
-            <div class="v">四川省眉山市东坡区本草大道北段8号</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path d="M22 16.92V21a1 1 0 0 1-1.1 1A19 19 0 0 1 2 3.1 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7.21 9.21a16 16 0 0 0 7.58 7.58l1.46-1.59a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="k">PHONE · 电话</div>
-            <div class="v">158 8221 1817</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/>
-            </svg>
-          </div>
-          <div>
-            <div class="k">EMAIL · 邮箱</div>
-            <div class="v">contact@motif-bio.cn(待确认)</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/>
-            </svg>
-          </div>
-          <div>
-            <div class="k">CREDIT CODE · 统一社会信用代码</div>
-            <div class="v">91511402MAEN9DXM8G</div>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form reveal d-2" id="contact-form">
-        <div class="row">
-          <input type="text" placeholder="您的姓名 / Name" required />
-          <input type="text" placeholder="公司 / Company" />
-        </div>
-        <div class="row">
-          <input type="email" placeholder="邮箱 / Email" required />
-          <input type="tel" placeholder="电话 / Phone" />
-        </div>
-        <textarea placeholder="留言内容 / Message" required></textarea>
-        <button type="submit">
-          发送留言 SEND
-        </button>
-      </form>
     </div>
   </div>
 </section>

@@ -246,6 +246,27 @@ links?.querySelectorAll('a').forEach(a =>
   a.addEventListener('click', () => links.classList.remove('open'))
 );
 
+// ---------- 首页产品中心 树状图:hover 联动 ----------
+(function initTree() {
+  const leaves = document.querySelectorAll('.leaf');
+  if (!leaves.length) return;
+
+  leaves.forEach(leaf => {
+    const idx = leaf.dataset.idx;
+    const leg = document.querySelector('.tree-leg[data-idx="' + idx + '"]');
+    const dot = document.querySelector('.tree-dot[data-idx="' + idx + '"]');
+
+    leaf.addEventListener('mouseenter', () => {
+      leg?.classList.add('active');
+      dot?.classList.add('active');
+    });
+    leaf.addEventListener('mouseleave', () => {
+      leg?.classList.remove('active');
+      dot?.classList.remove('active');
+    });
+  });
+})();
+
 // ---------- 厂房 Carousel(左右滚动) ----------
 (function initCarousel() {
   const track = document.getElementById('facility-track');
