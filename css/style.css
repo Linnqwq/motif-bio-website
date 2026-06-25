@@ -2864,3 +2864,349 @@ footer {
   filter: brightness(.55) saturate(.65) contrast(1.28) hue-rotate(-15deg) !important;
   /* saturate .80 → .65,蓝色更淡 */
 }
+
+/* =========================================================
+   v38 — 扩展页脚:logo + 联系方式 + 导航 + 公司信息
+   ========================================================= */
+footer {
+  padding: 0 !important;
+}
+.footer-main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 64px var(--pad-x) 48px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.3fr 1.3fr;
+  gap: 56px;
+  color: rgba(247,247,247,.78);
+}
+.footer-col { min-width: 0; }
+
+/* 品牌列 */
+.footer-brand { display: flex; flex-direction: column; gap: 18px; }
+.footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.footer-logo img {
+  width: 44px; height: 44px; object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: .95;
+}
+.footer-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.footer-brand-cn {
+  font-size: 18px; font-weight: 600;
+  color: var(--c-light);
+  letter-spacing: .08em;
+}
+.footer-brand-en {
+  font-size: 10.5px;
+  color: var(--c-mint);
+  letter-spacing: .15em;
+  margin-top: 3px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.footer-slogan {
+  font-size: 13.5px;
+  color: rgba(247,247,247,.72);
+  line-height: 1.7;
+  letter-spacing: .04em;
+  margin: 8px 0 0 0;
+}
+.footer-slogan-sub {
+  font-size: 12px;
+  color: rgba(199,230,183,.55);
+  line-height: 1.6;
+  letter-spacing: .03em;
+  margin: 0;
+}
+
+/* 列标题 */
+.footer-h {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-mint);
+  letter-spacing: .12em;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(199,230,183,.18);
+}
+
+/* 导航链接 */
+.footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  color: rgba(247,247,247,.65);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: .04em;
+  transition: color .25s var(--ease), padding-left .25s var(--ease);
+  position: relative;
+  padding-left: 0;
+}
+.footer-links a:hover { color: var(--c-mint); padding-left: 6px; }
+
+/* 联系方式 */
+.footer-contact { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.footer-contact li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px;
+  color: rgba(247,247,247,.72);
+  line-height: 1.55;
+}
+.footer-contact a {
+  color: rgba(247,247,247,.72);
+  text-decoration: none;
+  transition: color .25s var(--ease);
+}
+.footer-contact a:hover { color: var(--c-mint); }
+.footer-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  font-size: 12px;
+  flex-shrink: 0;
+  color: var(--c-mint);
+  opacity: .85;
+}
+
+/* 公司信息 */
+.footer-info { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer-info li {
+  display: flex; gap: 14px;
+  font-size: 12.5px;
+  color: rgba(247,247,247,.72);
+  line-height: 1.55;
+}
+.footer-info-k {
+  color: rgba(199,230,183,.55);
+  letter-spacing: .08em;
+  flex-shrink: 0;
+  min-width: 64px;
+}
+
+/* 底部版权条 */
+.footer-bottom {
+  border-top: 1px solid rgba(199,230,183,.12);
+  padding: 22px var(--pad-x);
+  background: rgba(0,0,0,.18);
+}
+.footer-bottom .footer-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 12px;
+  color: rgba(247,247,247,.45);
+  letter-spacing: .05em;
+}
+.footer-bottom .en {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: .12em;
+}
+
+/* 响应式 */
+@media (max-width: 1100px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 44px 40px;
+    padding: 56px var(--pad-x) 40px;
+  }
+}
+@media (max-width: 640px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 48px var(--pad-x) 32px;
+  }
+  .footer-bottom .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   v39 — 页脚精简:只保留 品牌列 + 联系方式列,去 emoji
+   ========================================================= */
+.footer-main {
+  grid-template-columns: 1.4fr 1fr !important;
+  gap: 80px !important;
+  padding: 72px var(--pad-x) 56px !important;
+}
+
+/* 联系方式:左标签 + 右内容 */
+.footer-contact-col .footer-contact {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column;
+  gap: 18px;
+}
+.footer-contact-col .footer-contact li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  align-items: baseline;
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding: 0;
+}
+.footer-contact-col .footer-k {
+  color: rgba(199,230,183,.55);
+  letter-spacing: .14em;
+  font-size: 12px;
+}
+.footer-contact-col .footer-v {
+  color: rgba(247,247,247,.82);
+  letter-spacing: .03em;
+}
+.footer-contact-col .footer-v a {
+  color: rgba(247,247,247,.82);
+  text-decoration: none;
+  transition: color .25s var(--ease);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+.footer-contact-col .footer-v a:hover {
+  color: var(--c-mint);
+  border-bottom-color: rgba(199,230,183,.5);
+}
+
+@media (max-width: 1100px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 56px !important;
+  }
+}
+@media (max-width: 640px) {
+  .footer-main {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .footer-contact-col .footer-contact li {
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
+  }
+}
+
+/* =========================================================
+   v40 — 页脚:logo 和联系方式拉开间距,版权融合进 main
+   ========================================================= */
+.footer-main {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap;
+  gap: 80px !important;
+  padding: 72px var(--pad-x) 36px !important;
+}
+.footer-brand { max-width: 360px; flex: 0 1 auto; }
+.footer-contact-col { flex: 0 1 auto; min-width: 320px; }
+
+/* 版权信息融合 — 无分隔线、无背景,只是底部小字 */
+.footer-meta {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x) 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: rgba(247,247,247,.38);
+  letter-spacing: .05em;
+}
+.footer-meta .en {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: .12em;
+}
+
+@media (max-width: 1100px) {
+  .footer-main {
+    gap: 56px !important;
+    padding: 64px var(--pad-x) 32px !important;
+  }
+}
+@media (max-width: 640px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 40px !important;
+    padding: 52px var(--pad-x) 28px !important;
+  }
+  .footer-brand, .footer-contact-col { max-width: 100%; min-width: 0; }
+  .footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 32px;
+  }
+}
+
+/* =========================================================
+   v41 — 页脚:恢复底部版权条(独立分隔线 + 略深背景)
+   ========================================================= */
+.footer-main {
+  padding-bottom: 56px !important;
+}
+
+/* 恢复 .footer-bottom 独立条 */
+.footer-bottom {
+  border-top: 1px solid rgba(199,230,183,.12);
+  padding: 22px var(--pad-x);
+  background: rgba(0,0,0,.18);
+}
+.footer-bottom .footer-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 12px;
+  color: rgba(247,247,247,.45);
+  letter-spacing: .05em;
+}
+.footer-bottom .en {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: .12em;
+}
+
+@media (max-width: 640px) {
+  .footer-bottom .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   v42 — 页脚:联系方式行距收紧,整体高度降低
+   ========================================================= */
+.footer-main {
+  padding: 52px var(--pad-x) 36px !important;
+}
+.footer-contact-col .footer-contact {
+  gap: 10px !important;
+}
+.footer-contact-col .footer-contact li {
+  line-height: 1.5;
+}
+.footer-contact-col .footer-h {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+}
+.footer-bottom {
+  padding: 16px var(--pad-x);
+}
+@media (max-width: 1100px) {
+  .footer-main {
+    padding: 44px var(--pad-x) 32px !important;
+  }
+}
+@media (max-width: 640px) {
+  .footer-main {
+    padding: 36px var(--pad-x) 24px !important;
+  }
+}
+
+/* =========================================================
+   v43 — 页脚:品牌列(logo)再向左偏移
+   ========================================================= */
+.footer-brand {
+  margin-left: clamp(-48px, -3vw, -16px);
+}
+@media (max-width: 640px) {
+  .footer-brand { margin-left: 0; }
+}
