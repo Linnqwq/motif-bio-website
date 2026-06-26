@@ -18,10 +18,13 @@ window.addEventListener('load', () => {
   }
 
   sessionStorage.setItem('motif-intro-seen', '1');
+  // 1.3s:文字先 fade + 上移(留 200ms 给字先走)
+  setTimeout(() => intro.classList.add('leaving'), 1300);
+  // 1.5s:绿底退场
   setTimeout(() => {
     intro.classList.add('done');
     document.body.classList.add('nav-ready');
-    setTimeout(() => intro.remove(), 500);
+    setTimeout(() => intro.remove(), 600);
   }, 1500);
 });
 

@@ -3543,3 +3543,26 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
   right: 0;
   z-index: 5;
 }
+
+/* =========================================================
+   v50 — Intro 退场更顺滑:字先走,绿底再退场
+   ① 1.3s:#intro.leaving — 三行文字 fade + translateY(-20px)
+   ② 1.5s:#intro.done    — 绿底整体淡出 + 微微上卷
+   ========================================================= */
+
+/* 文字先走(整个 stack 一起上移 + 淡出) */
+#intro.leaving .intro-stack {
+  opacity: 0 !important;
+  transform: translateY(-20px) !important;
+  transition: opacity .4s var(--ease), transform .4s var(--ease) !important;
+}
+
+/* 绿底淡出时也微微上卷,跟字的动作呼应 */
+#intro {
+  transition: opacity .55s var(--ease), transform .6s var(--ease) !important;
+}
+#intro.done {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
