@@ -3210,3 +3210,145 @@ footer {
 @media (max-width: 640px) {
   .footer-brand { margin-left: 0; }
 }
+
+/* =========================================================
+   v44 — Dropdown 重设计:深色玻璃 + 修闪烁 + 移动端 click 触发
+   ========================================================= */
+
+/* ---------- 深色玻璃风 dropdown(覆盖 v8 的白色) ---------- */
+.nav-item .dropdown {
+  background: rgba(16, 35, 3, .78) !important;
+  backdrop-filter: saturate(180%) blur(24px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(24px) !important;
+  border: 1px solid rgba(199,230,183,.16) !important;
+  border-radius: 12px !important;
+  padding: 8px 0 !important;
+  min-width: 200px !important;
+  box-shadow: 0 24px 50px rgba(0,0,0,.4) !important;
+
+  /* 关键:flush 贴合 nav 底部,无视觉断层 */
+  top: 100% !important;
+  transform: translate(-50%, 0) !important;
+
+  /* 关键:关闭时 visibility 延迟 300ms,鼠标短暂离开不会立刻收起 */
+  transition: opacity .22s var(--ease), visibility 0s linear .3s !important;
+}
+
+/* hover bridge — 隐藏的 12px 桥接条 */
+.nav-item .dropdown::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: 0;
+  width: 100%; height: 14px;
+}
+
+.nav-item:hover .dropdown,
+.nav-item:focus-within .dropdown,
+.nav-item.open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0) !important;
+  transition: opacity .22s var(--ease) !important;  /* 打开时无延迟 */
+}
+
+/* ---------- Dropdown 链接 ---------- */
+.nav-item .dropdown a {
+  color: rgba(199,230,183,.85) !important;
+  opacity: 1 !important;
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  padding: 11px 22px !important;
+  border-bottom: 1px solid rgba(199,230,183,.10) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  letter-spacing: .04em !important;
+  transition: background .2s var(--ease), color .2s var(--ease), padding-left .2s var(--ease) !important;
+}
+.nav-item .dropdown a:last-child { border-bottom: 0 !important; }
+.nav-item .dropdown a::after {
+  content: "›" !important;
+  display: inline-block !important;
+  position: static !important;
+  width: auto !important; height: auto !important;
+  background: none !important;
+  color: rgba(199,230,183,.4) !important;
+  font-size: 18px !important;
+  margin-left: 16px !important;
+  transition: color .2s var(--ease), transform .2s var(--ease) !important;
+}
+.nav-item .dropdown a:hover {
+  background: rgba(199,230,183,.10) !important;
+  color: var(--c-light) !important;
+  padding-left: 26px !important;
+}
+.nav-item .dropdown a:hover::after {
+  color: var(--c-mint) !important;
+  transform: translateX(4px) !important;
+}
+
+/* ---------- 移动端:click toggle + 流畅展开 ---------- */
+@media (max-width: 720px) {
+  .nav-item .caret {
+    display: inline-block !important;
+    width: 11px !important; height: 11px !important;
+    opacity: .7;
+    transition: transform .3s var(--ease);
+  }
+  .nav-item > a {
+    display: flex !important;
+    width: 100%;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .nav-item.open > a .caret {
+    transform: rotate(180deg);
+  }
+
+  /* 重置 dropdown 样式 — 不再是悬浮卡片,而是嵌入式列表 */
+  .nav-item .dropdown {
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    min-width: auto !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+
+    /* 默认隐藏,.open 时展开 */
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: max-height .3s var(--ease), opacity .3s var(--ease), padding .3s var(--ease) !important;
+  }
+  .nav-item .dropdown::before { display: none !important; }
+
+  .nav-item.open .dropdown {
+    max-height: 320px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    padding: 4px 0 12px 18px !important;
+  }
+
+  .nav-item .dropdown a {
+    padding: 10px 0 !important;
+    font-size: 13.5px !important;
+    color: rgba(199,230,183,.72) !important;
+    border-bottom: 0 !important;
+    justify-content: flex-start !important;
+  }
+  .nav-item .dropdown a::after { display: none !important; }
+  .nav-item .dropdown a:hover {
+    background: transparent !important;
+    color: var(--c-mint) !important;
+    padding-left: 0 !important;
+  }
+}

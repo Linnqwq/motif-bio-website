@@ -238,13 +238,38 @@ const onScroll = () => {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// ---------- 移动端菜单 ----------
+// ---------- 移动端菜单 + Dropdown click toggle ----------
 const toggle = document.querySelector('.nav-toggle');
 const links  = document.querySelector('.nav-links');
+const mq = window.matchMedia('(max-width: 720px)');
+
 toggle?.addEventListener('click', () => links.classList.toggle('open'));
-links?.querySelectorAll('a').forEach(a =>
-  a.addEventListener('click', () => links.classList.remove('open'))
-);
+
+// 关闭整个移动菜单(在 sub-link 上点击时);跳过 dropdown parent 链接
+links?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    const isMobileDropdownParent = mq.matches && a.parentElement?.classList.contains('nav-item');
+    if (isMobileDropdownParent) return;
+    links.classList.remove('open');
+  });
+});
+
+// Dropdown 父链接:移动端 → 点击展开 dropdown(不跳转);桌面端 → 正常跳转
+document.querySelectorAll('.nav-item > a').forEach(parentLink => {
+  parentLink.addEventListener('click', (e) => {
+    if (mq.matches) {
+      e.preventDefault();
+      parentLink.parentElement.classList.toggle('open');
+    }
+  });
+});
+
+// 点击 dropdown 外面关闭(桌面端用于 click-mode 时,移动端无影响)
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-item')) {
+    document.querySelectorAll('.nav-item.open').forEach(n => n.classList.remove('open'));
+  }
+});
 
 // ---------- 首页产品中心 树状图:hover 联动 ----------
 (function initTree() {
