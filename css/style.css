@@ -3420,3 +3420,125 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
     min-height: auto !important;
   }
 }
+
+/* =========================================================
+   v47 — 产品中心:浅底 / 深字 / Hover 卡片亮起(深绿 + 薄荷)
+   关键交互:
+   ① 默认浅灰白底、黑字
+   ② Hover:卡片 flex-grow 1 → 1.5(变宽)
+   ③ Hover:背景平滑过渡到深墨绿 #102303
+   ④ Hover:序号 + 核心文字变薄荷 #C7E6B7
+   ========================================================= */
+
+/* 关掉旧的深色 DNA 背景层 */
+.products.section-dark { background: var(--c-light) !important; color: var(--c-ink) !important; }
+.products-bg-image, .products-bg-overlay { display: none !important; }
+
+/* 标题区改深色 */
+.products .eyebrow { color: rgba(16,35,3,.65) !important; }
+.products .h-title { color: var(--c-ink) !important; }
+.products .h-sub { color: var(--c-ink-60) !important; }
+
+/* 右上「查看全部产品」按钮 */
+.products.section-dark .section-head .head-cta {
+  color: var(--c-deep) !important;
+  border-color: rgba(15,15,15,.18) !important;
+  background: transparent !important;
+}
+.products.section-dark .section-head .head-cta:hover {
+  background: var(--c-deep) !important;
+  color: var(--c-light) !important;
+  border-color: var(--c-deep) !important;
+}
+
+/* 5 列:从 grid 切到 flex,启用 flex-grow */
+.products-columns {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+  border-top: 1px solid rgba(15,15,15,.08) !important;
+  border-bottom: 1px solid rgba(15,15,15,.08) !important;
+  min-height: 400px;
+}
+
+.prod-col {
+  flex: 1 1 0 !important;
+  border-right: 1px solid rgba(15,15,15,.08) !important;
+  background: transparent;
+  /* 关键平滑过渡 */
+  transition:
+    flex-grow .6s cubic-bezier(.25,.46,.45,.94),
+    background .5s cubic-bezier(.25,.46,.45,.94),
+    border-color .4s var(--ease) !important;
+}
+.prod-col:last-child { border-right: 0 !important; }
+
+/* 关掉旧的顶部高亮线 */
+.prod-col::before { display: none !important; }
+
+/* ---------- 默认色:浅底深字 ---------- */
+.prod-col .col-num {
+  color: var(--c-ink) !important;
+  opacity: .12 !important;
+  transition: color .5s var(--ease), opacity .5s var(--ease) !important;
+}
+.prod-col .col-en {
+  color: rgba(15,15,15,.45) !important;
+  transition: color .5s var(--ease), opacity .5s var(--ease) !important;
+}
+.prod-col .col-cn {
+  color: var(--c-ink) !important;
+  transition: color .5s var(--ease) !important;
+}
+.prod-col .col-foot {
+  color: rgba(15,15,15,.4) !important;
+  opacity: .6 !important;
+  transition: color .5s var(--ease), opacity .5s var(--ease), gap .3s var(--ease) !important;
+}
+
+/* ---------- Hover:卡片亮起 ---------- */
+.prod-col:hover {
+  flex-grow: 1.5 !important;
+  background: var(--c-deep) !important;
+  border-right-color: transparent !important;
+}
+/* 前一张卡的右边线也隐藏,避免 hover 卡左侧多余分隔 */
+.prod-col:has(+ .prod-col:hover) {
+  border-right-color: transparent !important;
+}
+
+.prod-col:hover .col-num {
+  color: var(--c-mint) !important;
+  opacity: 1 !important;
+}
+.prod-col:hover .col-en {
+  color: var(--c-mint) !important;
+}
+.prod-col:hover .col-cn {
+  color: var(--c-light) !important;
+}
+.prod-col:hover .col-foot {
+  color: var(--c-mint) !important;
+  opacity: 1 !important;
+  gap: 14px;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1100px) {
+  .products-columns { flex-wrap: wrap; }
+  .prod-col { flex-basis: 33.333% !important; }
+  .prod-col:nth-child(3) { border-right: 0 !important; }
+  .prod-col:nth-child(4),
+  .prod-col:nth-child(5) {
+    border-top: 1px solid rgba(15,15,15,.08) !important;
+  }
+  /* 平板取消 grow,避免布局跳动 */
+  .prod-col:hover { flex-grow: 1 !important; }
+}
+@media (max-width: 640px) {
+  .prod-col { flex-basis: 100% !important; }
+  .prod-col:nth-child(n) { border-right: 0 !important; }
+  .prod-col {
+    border-bottom: 1px solid rgba(15,15,15,.08) !important;
+  }
+}
