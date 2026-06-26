@@ -3386,3 +3386,37 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
     transition: none;
   }
 }
+
+/* =========================================================
+   v46 — 关于我们 / 企业简介:不对称布局
+   ① 图片向右延伸至屏幕边缘(打破容器限制)
+   ② 不对称圆角:左圆右贴边
+   ③ 图片栏比例放大
+   ========================================================= */
+
+/* 防止图片延伸时产生水平滚动 */
+.about.about-two-col { overflow-x: clip; }
+
+.about-two-col .about-grid2 {
+  grid-template-columns: 1fr 1.4fr !important;       /* 1:1.15 → 1:1.4 */
+  gap: clamp(40px, 5.5vw, 72px) !important;
+  align-items: stretch !important;
+}
+
+.about-two-col .about-pic {
+  /* 不对称圆角:只左侧圆,右侧贴屏幕边 */
+  border-radius: 28px 0 0 28px !important;
+  /* 突破 section 内容边界,右边延伸到屏幕边缘 */
+  margin-right: calc(-1 * max((100vw - var(--maxw)) / 2, var(--pad-x))) !important;
+  min-height: 440px !important;
+  box-shadow: 0 24px 60px rgba(16,35,3,.22) !important;
+}
+
+/* 移动端回退:1 列布局时,图片不再延伸 */
+@media (max-width: 960px) {
+  .about-two-col .about-pic {
+    margin-right: 0 !important;
+    border-radius: 18px !important;
+    min-height: auto !important;
+  }
+}
