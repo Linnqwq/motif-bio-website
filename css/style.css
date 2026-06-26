@@ -3420,3 +3420,27 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
     min-height: auto !important;
   }
 }
+
+/* =========================================================
+   v47 — 关于我们 / 企业简介:图片左边线性减淡
+   ========================================================= */
+.about-two-col .about-pic {
+  /* 左边渐变到透明,跟文字区柔和过渡 */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 100%);
+  /* 因为左侧已经渐隐了,左边的圆角看不到了,改成只圆右上右下 */
+  border-radius: 0 !important;
+  /* mask 会把阴影也削掉,加深右下阴影补一下立体感 */
+  box-shadow: -10px 24px 60px rgba(16,35,3,.20) !important;
+  background: transparent !important;
+}
+
+/* 移动端 1 列布局回退 */
+@media (max-width: 960px) {
+  .about-two-col .about-pic {
+    -webkit-mask-image: none;
+            mask-image: none;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 60px rgba(16,35,3,.18) !important;
+  }
+}
