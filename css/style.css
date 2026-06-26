@@ -3420,3 +3420,55 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
     min-height: auto !important;
   }
 }
+
+/* =========================================================
+   v47 — 产品中心:保留原深色基调,只加 hover「卡片亮起」动态
+   ① Grid → Flex,启用 flex-grow 过渡
+   ② Hover:flex-grow 1 → 1.5,卡片变宽
+   ③ Hover:背景出现薄荷光晕(在原深绿之上),文字/序号/箭头同步增亮
+   ========================================================= */
+
+.products-columns {
+  display: flex !important;
+  flex-direction: row !important;
+  grid-template-columns: none !important;
+}
+.prod-col {
+  flex: 1 1 0 !important;
+  /* 关键:加入 flex-grow / background 平滑过渡 */
+  transition:
+    flex-grow .6s cubic-bezier(.25,.46,.45,.94),
+    background .5s cubic-bezier(.25,.46,.45,.94),
+    border-color .4s var(--ease) !important;
+}
+
+/* Hover 时卡片变宽 + 薄荷光晕加深 */
+.prod-col:hover {
+  flex-grow: 1.5 !important;
+  background: rgba(199,230,183,.12) !important;  /* 原本 .08 → .12 更亮 */
+  box-shadow:
+    inset 0 1px 0 rgba(199,230,183,.35),
+    inset 0 -1px 0 rgba(199,230,183,.15) !important;
+}
+
+/* hover 卡两侧分隔线渐隐,避免视觉碎裂 */
+.prod-col:hover { border-right-color: transparent !important; }
+.prod-col:has(+ .prod-col:hover) { border-right-color: transparent !important; }
+
+/* 中文标题悬停时变薄荷绿,让"亮起"感更明显 */
+.prod-col .col-cn {
+  transition: color .5s var(--ease) !important;
+}
+.prod-col:hover .col-cn {
+  color: var(--c-mint) !important;
+}
+
+/* 响应式:平板/手机取消 flex-grow,避免布局抖动 */
+@media (max-width: 1100px) {
+  .products-columns { flex-wrap: wrap; }
+  .prod-col { flex-basis: 33.333% !important; }
+  .prod-col:hover { flex-grow: 1 !important; }
+}
+@media (max-width: 640px) {
+  .prod-col { flex-basis: 100% !important; }
+}
