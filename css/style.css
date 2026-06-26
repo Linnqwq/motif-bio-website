@@ -3472,3 +3472,56 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
 @media (max-width: 640px) {
   .prod-col { flex-basis: 100% !important; }
 }
+
+/* =========================================================
+   v48 — 视差/微交互优化
+   ① Navbar:scroll 阈值 100,blur 14 → 8
+   ② Reveal:位移 28 → 20px(更克制)
+   ③ 箭头微动:translateX 2 → 5px
+   ④ Facility carousel → 无缝循环跑马灯
+   ========================================================= */
+
+/* ① Navbar 毛玻璃精调 */
+.nav.scrolled {
+  backdrop-filter: saturate(180%) blur(8px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(8px) !important;
+  transition: all .3s ease !important;
+}
+
+/* ② Reveal 位移收敛 */
+.reveal { transform: translateY(20px) !important; }
+.reveal.in { transform: translateY(0) !important; }
+
+/* ③ 箭头悬停平移加大 */
+.link-more:hover svg { transform: translateX(5px) !important; }
+
+/* ④ 跑马灯模式 */
+.carousel-track--marquee {
+  width: max-content;
+  /* 取消原 overflow + scroll-snap,改成纯动画 */
+  overflow: visible !important;
+  scroll-snap-type: none !important;
+  scroll-behavior: auto !important;
+  padding: 4px 0 20px !important;
+  animation: facilityMarquee 55s linear infinite;
+  will-change: transform;
+}
+.carousel-track--marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes facilityMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+/* marquee 模式下 carousel 外层不再需要负 margin */
+.carousel:has(.carousel-track--marquee) {
+  margin: 0;
+  overflow: hidden;     /* 防止图片溢出页面横向滚动 */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+}
+
+/* 用户偏好减少动画时,停止跑马灯 */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track--marquee { animation: none; }
+}

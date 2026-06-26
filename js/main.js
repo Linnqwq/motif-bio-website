@@ -232,7 +232,7 @@ window.addEventListener('load', () => {
 // ---------- 导航滚动磨砂 ----------
 const nav = document.querySelector('.nav');
 const onScroll = () => {
-  if (window.scrollY > 40) nav.classList.add('scrolled');
+  if (window.scrollY > 100) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 };
 window.addEventListener('scroll', onScroll, { passive: true });
@@ -292,22 +292,24 @@ document.addEventListener('click', (e) => {
   });
 })();
 
-// ---------- 厂房 Carousel(左右滚动) ----------
+// ---------- 厂房 Carousel:无缝循环跑马灯 ----------
 (function initCarousel() {
   const track = document.getElementById('facility-track');
   if (!track) return;
 
-  document.querySelectorAll('.carousel-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const dir = btn.dataset.dir;
-      const first = track.querySelector('.carousel-item');
-      if (!first) return;
-      const step = first.offsetWidth + 20; // gap=20
-      track.scrollBy({
-        left: dir === 'next' ? step : -step,
-        behavior: 'smooth'
-      });
-    });
+  // 切换到 marquee 模式
+  track.classList.add('carousel-track--marquee');
+
+  // 去除原有的左右按钮(永动机不需要)
+  const nav = document.querySelector('.carousel-nav-floating');
+  if (nav) nav.remove();
+
+  // 克隆全部 item 一次,使总长度 = 原始 × 2,达到 -50% 平移时无缝衔接
+  const items = Array.from(track.children);
+  items.forEach(item => {
+    const clone = item.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
   });
 })();
 
