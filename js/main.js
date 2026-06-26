@@ -292,24 +292,77 @@ document.addEventListener('click', (e) => {
   });
 })();
 
-// ---------- 厂房 Carousel:无缝循环跑马灯 ----------
+// ---------- 厂房 Carousel:JS 驱动无缝跑马灯 + 手动控制 ----------
 (function initCarousel() {
   const track = document.getElementById('facility-track');
   if (!track) return;
 
-  // 切换到 marquee 模式
   track.classList.add('carousel-track--marquee');
 
-  // 去除原有的左右按钮(永动机不需要)
-  const nav = document.querySelector('.carousel-nav-floating');
-  if (nav) nav.remove();
-
-  // 克隆全部 item 一次,使总长度 = 原始 × 2,达到 -50% 平移时无缝衔接
-  const items = Array.from(track.children);
-  items.forEach(item => {
+  // 克隆全部 item 一次,达到无缝衔接
+  const originalCount = track.children.length;
+  Array.from(track.children).forEach(item => {
     const clone = item.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
     track.appendChild(clone);
+  });
+
+  const carousel = track.parentElement;
+  const items = track.querySelectorAll('.carousel-item');
+  const GAP = 28;
+
+  // 计算原始一半的总宽度(用于无缝循环)
+  const computeHalfWidth = () => {
+    let w = 0;
+    for (let i = 0; i < originalCount; i++) {
+      w += items[i].offsetWidth + GAP;
+    }
+    return w;  // 包含原始最后一项后的 gap,正好衔接到克隆段
+  };
+  let halfWidth = computeHalfWidth();
+  window.addEventListener('resize', () => { halfWidth = computeHalfWidth(); });
+
+  // 状态
+  let x = 0;
+  const SPEED = 0.045;  // px/ms ≈ 一圈约 50s
+  let paused = false;
+  let lastT = null;
+  let manualUntil = 0;
+
+  function wrap(v) {
+    while (v <= -halfWidth) v += halfWidth;
+    while (v >= 0) v -= halfWidth;
+    return v;
+  }
+
+  function tick(t) {
+    if (lastT == null) lastT = t;
+    const dt = t - lastT;
+    lastT = t;
+    if (!paused && t > manualUntil) {
+      x = wrap(x - SPEED * dt);
+      track.style.transform = `translateX(${x}px)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  // 鼠标进入时暂停
+  carousel.addEventListener('mouseenter', () => { paused = true; });
+  carousel.addEventListener('mouseleave', () => { paused = false; });
+
+  // 手动按钮:jump 一个 item 宽度
+  document.querySelectorAll('.carousel-nav-floating .carousel-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const dir = btn.dataset.dir;
+      const step = items[0].offsetWidth + GAP;
+      x = wrap(x + (dir === 'next' ? -step : step));
+      track.style.transition = 'transform .5s cubic-bezier(.25,.46,.45,.94)';
+      track.style.transform = `translateX(${x}px)`;
+      setTimeout(() => { track.style.transition = ''; }, 520);
+      // 手动操作后停 2 秒再继续自动滚动,给用户看一下
+      manualUntil = performance.now() + 2000;
+    });
   });
 })();
 

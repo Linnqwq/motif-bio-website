@@ -3525,3 +3525,21 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
 @media (prefers-reduced-motion: reduce) {
   .carousel-track--marquee { animation: none; }
 }
+
+/* =========================================================
+   v49 — 跑马灯改 JS RAF 驱动,无缝循环 + 手动控制
+   ========================================================= */
+
+/* 去掉 v48 的 CSS 动画(由 JS 接管) */
+.carousel-track--marquee {
+  animation: none !important;
+}
+
+/* 手动按钮恢复显示 + 浮于跑马灯上方右侧 */
+.carousel:has(.carousel-track--marquee) .carousel-nav-floating {
+  display: flex !important;
+  position: absolute;
+  top: -64px;
+  right: 0;
+  z-index: 5;
+}
