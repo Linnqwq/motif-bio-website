@@ -3596,3 +3596,30 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
   .about-two-col .about-pic { min-height: auto !important; }
   .products-columns { min-height: auto !important; }
 }
+
+/* =========================================================
+   v52 — 板块高度回调 + 企业风貌/新闻 更短
+   ========================================================= */
+.home-section {
+  min-height: 820px !important;                        /* 880 → 820 */
+  padding-top: clamp(90px, 12vh, 140px) !important;    /* 略降 */
+  padding-bottom: clamp(90px, 12vh, 140px) !important;
+}
+
+/* News + Facility 更短 */
+.news.home-section,
+.facility.home-section {
+  min-height: 640px !important;
+  padding-top: clamp(72px, 9vh, 110px) !important;
+  padding-bottom: clamp(72px, 9vh, 110px) !important;
+}
+
+/* About 图片跟着回一点 */
+.about-two-col .about-pic {
+  min-height: 480px !important;                        /* 520 → 480 */
+}
+
+/* 5 产品列 */
+.products-columns {
+  min-height: 440px !important;                        /* 480 → 440 */
+}
