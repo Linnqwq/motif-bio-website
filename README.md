@@ -65,16 +65,34 @@ python3 -m http.server 8000
 
 ```css
 :root {
-  --c-deep:  #102303;   /* 深墨绿 · 主色 */
-  --c-mint:  #C7E6B7;   /* 浅薄荷 · 强调 */
-  --c-light: #F7F7F7;   /* 浅灰白 · 背景 */
-  --c-ink:   #0F0F0F;   /* 正文黑 */
-  --maxw:    1240px;
-  --pad-x:   clamp(20px, 5vw, 80px);
+  --c-deep:  #102303;                          /* 深墨绿 · 主色 */
+  --c-mint:  #C7E6B7;                          /* 浅薄荷 · 强调 */
+  --c-light: #F7F7F7;                          /* 浅灰白 · 背景 */
+  --c-ink:   #0F0F0F;                          /* 正文黑 */
+  --maxw:    clamp(1200px, 88vw, 1520px);      /* 弹性最大宽度 */
+  --pad-x:   clamp(20px, 5vw, 96px);           /* 弹性左右 padding */
 }
 ```
 
 字体:中文 **Noto Sans SC**,英文 **Space Grotesk**(Google Fonts)。
+
+## 分辨率适配(v55 起)
+
+**电脑一份代码,手机一份布局**。参考屏 1440px,任意 1200–2560px 电脑自动等比缩放,不需要为每种屏幕手调。
+
+**关键值都用 `clamp(下限, 按比率, 上限)`:**
+
+| 元素 | 13" MacBook<br/>(1280) | 15" Pro<br/>(1440) | 24" Studio<br/>(1920) | 27" iMac<br/>(2560) |
+|---|---|---|---|---|
+| 内容最大宽度 | 1200 | 1267 | **1520**(封顶) | 1520 |
+| About / Products 板块高 | 704 | 792 | **920**(封顶) | 920 |
+| News / Facility 板块高 | 563 | 634 | **720**(封顶) | 720 |
+| About 图片高 | 422 | 475 | **560**(封顶) | 560 |
+| 左右 padding | 64 | 72 | **96**(封顶) | 96 |
+
+**手机版**(≤ 960px):独立走一套布局,`min-height: auto`,不进入 clamp 逻辑。
+
+**要调某个板块的比例**(比如让 About 更矮),改 `.home-section { min-height: clamp(A, Bvw, C) }` 的三个数字即可 —— 全屏幕范围一次搞定。
 
 ## 主要交互
 
@@ -87,7 +105,6 @@ python3 -m http.server 8000
 | **产品中心** | 5 卡片 hover **flex-grow 变宽 + 薄荷光晕亮起**,中文标题变薄荷 |
 | **设施跑马灯** | JS RAF 驱动**无缝循环**,55s 一圈,鼠标 hover 暂停,左右按钮可手动跳 |
 | **滚动揭示** | IntersectionObserver,元素入视口 fade-up 20px |
-| **数字滚动** | 成立年 / 注册资本 / 业务领域 / 研发占比 |
 | **链接箭头** | 「了解 / 查看」按钮悬停箭头 translateX(5px) |
 
 ## 如何更新内容
@@ -124,11 +141,11 @@ python3 -m http.server 8000
 每次改 CSS / JS,**必须**升级 query 版本号(防浏览器缓存):
 
 ```html
-<link rel="stylesheet" href="css/style.css?v=51" />
-<script src="js/main.js?v=51"></script>
+<link rel="stylesheet" href="css/style.css?v=55" />
+<script src="js/main.js?v=55"></script>
 ```
 
-当前版本:**v50**(详见 `css/style.css` 末尾的版本注释)。
+当前版本:**v55**(详见 `css/style.css` 末尾的版本注释)。
 
 ## 部署
 
