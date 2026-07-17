@@ -15,8 +15,8 @@
   --c-mint-20: rgba(199,230,183,.2);
   --c-mint-40: rgba(199,230,183,.4);
 
-  --maxw: 1240px;
-  --pad-x: clamp(20px, 5vw, 80px);
+  --maxw: clamp(1200px, 88vw, 1520px);   /* v55: 电脑分辨率按比率自适配 */
+  --pad-x: clamp(20px, 5vw, 96px);
   --sec-y: clamp(80px, 12vh, 140px);
 
   --font-cn: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", system-ui, sans-serif;
@@ -3639,11 +3639,7 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
    参考屏 1440px,下限适配 13" MacBook Air(1280),上限适配 27" iMac(2560)
    ========================================================= */
 
-/* 内容容器 + 左右 padding */
-:root {
-  --maxw: clamp(1200px, 88vw, 1520px) !important;
-  --pad-x: clamp(20px, 5vw, 96px) !important;
-}
+/* --maxw / --pad-x 已在文件顶部 :root 更新为 clamp,此处不再重复 */
 
 /* 主板块高度(About / Products)按比率 */
 .home-section {
