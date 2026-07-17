@@ -3601,7 +3601,7 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
    v52 — 板块高度回调 + 企业风貌/新闻 更短
    ========================================================= */
 .home-section {
-  min-height: 820px !important;                        /* 880 → 820 */
+  min-height: 800px !important;                        /* 880 → 800 */
   padding-top: clamp(90px, 12vh, 140px) !important;    /* 略降 */
   padding-bottom: clamp(90px, 12vh, 140px) !important;
 }
