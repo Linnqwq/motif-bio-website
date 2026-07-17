@@ -3621,5 +3621,15 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
 
 /* 5 产品列 */
 .products-columns {
-  min-height: 440px !important;                        /* 480 → 440 */
+  min-height: 340px !important;                        /* 440 → 340,更瘦 */
+}
+.prod-col {
+  padding-top: 28px !important;
+  padding-bottom: 24px !important;
+}
+.prod-col .col-content {
+  margin-top: 32px !important;                         /* 56 → 32 */
+}
+.prod-col .col-foot {
+  padding-top: 18px !important;                        /* 28 → 18 */
 }
