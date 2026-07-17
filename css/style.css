@@ -3566,3 +3566,33 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
   transform: translateY(-12px);
   pointer-events: none;
 }
+
+/* =========================================================
+   v51 — 首页每个板块加高,更"呼吸"
+   ========================================================= */
+.home-section {
+  min-height: 880px !important;                        /* 740 → 880 */
+  padding-top: clamp(100px, 13vh, 160px) !important;   /* 上下 padding 加大 */
+  padding-bottom: clamp(100px, 13vh, 160px) !important;
+}
+
+/* About 图片栏跟着变高 */
+.about-two-col .about-pic {
+  min-height: 520px !important;                        /* 440 → 520 */
+}
+
+/* 5 产品列跟着变高 */
+.products-columns {
+  min-height: 480px !important;                        /* 400 → 480 */
+}
+
+/* 小屏幕不追求这么高,避免手机上滚动过长 */
+@media (max-width: 960px) {
+  .home-section {
+    min-height: auto !important;
+    padding-top: clamp(72px, 10vh, 100px) !important;
+    padding-bottom: clamp(72px, 10vh, 100px) !important;
+  }
+  .about-two-col .about-pic { min-height: auto !important; }
+  .products-columns { min-height: auto !important; }
+}
