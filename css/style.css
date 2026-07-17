@@ -3633,3 +3633,50 @@ body.nav-ready .hero-slogan .line:nth-child(3) { transition-delay: .45s; }
 .prod-col .col-foot {
   padding-top: 18px !important;                        /* 28 → 18 */
 }
+
+/* =========================================================
+   v55 — 按比率自适配(clamp)
+   参考屏 1440px,下限适配 13" MacBook Air(1280),上限适配 27" iMac(2560)
+   ========================================================= */
+
+/* 内容容器 + 左右 padding */
+:root {
+  --maxw: clamp(1200px, 88vw, 1520px) !important;
+  --pad-x: clamp(20px, 5vw, 96px) !important;
+}
+
+/* 主板块高度(About / Products)按比率 */
+.home-section {
+  min-height: clamp(640px, 55vw, 920px) !important;
+  padding-top: clamp(80px, 8vw, 140px) !important;
+  padding-bottom: clamp(80px, 8vw, 140px) !important;
+}
+
+/* News / Facility 短一档 */
+.news.home-section,
+.facility.home-section {
+  min-height: clamp(500px, 44vw, 720px) !important;
+  padding-top: clamp(64px, 6vw, 110px) !important;
+  padding-bottom: clamp(64px, 6vw, 110px) !important;
+}
+
+/* About 大图片 */
+.about-two-col .about-pic {
+  min-height: clamp(400px, 33vw, 560px) !important;
+}
+
+/* 产品中心 5 列 */
+.products-columns {
+  min-height: clamp(280px, 24vw, 400px) !important;
+}
+
+/* ≤ 960px 走独立手机版布局,不进入 clamp */
+@media (max-width: 960px) {
+  .home-section {
+    min-height: auto !important;
+    padding-top: clamp(60px, 9vh, 90px) !important;
+    padding-bottom: clamp(60px, 9vh, 90px) !important;
+  }
+  .about-two-col .about-pic { min-height: auto !important; }
+  .products-columns { min-height: auto !important; }
+}
